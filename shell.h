@@ -99,7 +99,7 @@ hist_t *add_history(hist_t *head, char *cmd);
 void print_history(hist_t *head);
 char *make_path(char **path, char *filename, char *key, env_t *envp);
 
-/* hist3_cmd-add*/
+/* hist3_cmdAdd*/
 void add_cmdhist(hist_t *history, char *cmd);
 void pop_head(hist_t *head);
 int write_history(env_t *envp, hist_t *history);
@@ -109,16 +109,16 @@ char *_itoa(int num, int mode);
 int more_cmds(buffer *buf, int return_value);
 void trim_cmd(buffer *buf);
 
-/* variable-exp.c */
+/* variableExp.c */
 void variable_expansion(buffer *b, env_t *envp, int retrn_value);
 char *_getpid(void);
 char *_getTok(char *stat, int n);
 
-/* exec-runfunx.c*/
+/* execRunfunx.c*/
 int run_execute(char **arg_list, env_t *env_p, int cmd_size);
 int execute_func(char *cmd, char **args, env_t *envp);
 
-/* link-crt_envlist.c*/
+/* linkCrt_envlist.c*/
 env_t *create_envlist();
 env_t *add_env(env_t **head, char *value);
 void  remove_env(env_t **head, int index);
@@ -140,7 +140,7 @@ char **list_to_array(env_t *envp);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 
-/* hlp3_memcpy-src.c*/
+/* hlp3_memcpySrc.c*/
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *_memset(char *s, char b, unsigned int n);
 char *_strcat(char *dest, char *src);
@@ -155,14 +155,14 @@ int _str_match(char *s1, char *s2);
 int _str_match_tonull(char *s1, char *s2);
 int _atoi(char *s);
 
-/* hlp5_str-int.c */
+/* hlp5_strInt.c */
 int _strstr_int(char *haystack, char *needle);
 int _strpbrk_int(char *s, char *needles);
 int _str_match_strict(char *s1, char *s2);
 int is_alpha(char c);
 int is_digit(char c);
 
-/* hlp_str-match.c */
+/* hlp_strMatch.c */
 int string_match(char *s1, char *s2, char *delim);
 int char_match(char c, char *needles);
 
@@ -176,29 +176,29 @@ void buffer_reallocate(buffer *b);
 void buffer_word_erase(buffer *b, int n);
 void buffer_insert(buffer *b, char *s, int n);
 
-/* hsh_alias.c */
+/* hshAlias.c */
 int hsh_alias(char **argv, env_t *env_p, int mode);
 char *hsh_alias_search(alias *list, char *arg);
 int hsh_alias_printall(alias *list);
 int hsh_alias_print(alias *list, char **argv);
 int hsh_alias_add(alias *list, char **argv);
 
-/* cdir_funx.c */
+/* cdirFunx.c */
 char *cd_path(char **arg_list, env_t *envp, int buf_size);
 
-/* get-cpypath.c */
+/* getCpypath.c */
 int get_path(char *path, env_t *list);
 char **tokenize_path(char **search_path, char *path, int size);
 int create_path(char *cmd, char **search_path);
 
-/* token-buff.c */
+/* tokenBuff.c */
 void tokenize_buf(buffer *buf, char ***av);
 void _av_init(char *buf, char ***av);
 void _add_null(char *buf);
 int _is_whitespace(char c);
 int _is_endofcmd(char c);
 
-/* exec-builtin.c */
+/* execBuiltin.c */
 int run_builtin(char **arg_list, env_t *env_p, int buf_size);
 
 /* check_alias.c */
@@ -212,21 +212,21 @@ void add_addr_list_node(addr_list *list, void *address);
 void free_addr_list(addr_list *list);
 
 /* list of builtin functions */
-int hsh-environ(char **arg, env_t *env_p);
-int hsh-setenv_mimic(char **arg, env_t *env_p, int buf_size);
-int hsh-unsetenv_mimic(char **arg, env_t *env_p);
-int hsh-cdir(char **arg, env_t *env_p, int buf_size);
-int hsh-hlpr(char **arg);
-int hsh-exit_envi(char **arg_list, env_t *env_p, int buf_size);
-int hsh-hist(char **arg, env_t *env_p, int buf_size);
+int hshEnviron(char **arg, env_t *env_p);
+int hshSetenv_mimic(char **arg, env_t *env_p, int buf_size);
+int hshUnsetenv_mimic(char **arg, env_t *env_p);
+int hshCdir(char **arg, env_t *env_p, int buf_size);
+int hshHlpr(char **arg);
+int hshExit_envi(char **arg_list, env_t *env_p, int buf_size);
+int hshHist(char **arg, env_t *env_p, int buf_size);
 
 /* list of builtin help printouts */
-int hsh-exit_envi_help(void);
-int hsh-environ_help(void);
-int hsh-setenv_mimic_help(void);
-int hsh-unsetenv_mimic_help(void);
-int hsh-cdir_help(void);
-int hsh-hist_help(void);
-int hsh-hlpr_help(void);
-int hsh-alias_help(void);
+int hshExit_envi_help(void);
+int hshEnviron_help(void);
+int hshSetenv_mimic_help(void);
+int hshUnsetenv_mimic_help(void);
+int hshCdir_help(void);
+int hshHist_help(void);
+int hshHlpr_help(void);
+int hshAlias_help(void);
 #endif
